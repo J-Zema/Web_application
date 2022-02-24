@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Analiza danych</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+
+    <body>
+        <div class="logopwr">
+            <a href="https://pwr.edu.pl">
+                <img src="https://dona.pwr.edu.pl/szukaj/img/logo_PWr_kolor_poziom_bez_tla.png" alt="logo" width="500" height="120">
+            </a>
+        </div>
+
+        <div class="menu">
+            <a href="/">Strona główna</a>
+            <a class="active" href="/analiza-danych">Analiza danych</a>
+            <a href="/kontakt">Kontakt</a>
+        </div>
+
+        <br> 
+        <form style="text-align: justify;" 
+        action="{{ url_for('analiza') }}" method="POST" enctype="multipart/form-data">
+            <p style="font-size: 20px;">Wybierz plik csv:</p>
+            <input type="file" name="csvfile" accept=".csv"><br> <!-- pobieranie pliku od uzytkownika, możemy dodać tylko plik csv -->
+            <input type="submit" value="Dodaj" style="width: 88px;">
+        </form>
+        {% if data %}
+            <form action="{{ url_for('analiza') }}" method="POST" enctype="multipart/form-data">
+                <br><br>
+                <p>Wybierz kolejno zmienną kategoryczną, pierwszą zmienną ciągłą i drugą zmienną ciągłą:</p>
+                <select name="values1" id="values" style="
+                    margin-top:10;"> <!-- lista rozwijana zmiennych kategorycznych -->
+                    {%for i in categorical %}
+                        {% if i==selected_v1 %}
+                            <option selected>{{ i }}</option>   <!-- wyświetlamy w comboboxie jako pierwszą wybraną ostatnią zmienną kat  -->
+                        {% else %}
+                            <option>{{ i }}</option>
+                        {% endif %}
+                    {%endfor%}
+                </select>
+                <select name="values2" id="values"> <!-- pierwsza lista rozwijana zmiennych ciągłych -->
+                    {%for i in continuous%}
+                        {% if i==selected_v2 %}
+                            <option selected>{{ i }}</option>
+                        {% else %}
+                            <option>{{ i }}</option>
+                        {% endif %}
+                    {%endfor%}
+                </select>
+                <select name="values3" id="values"> <!-- druga lista rozwijana zmiennych ciągłych -->
+                    {%for i in continuous%}
+                        {% if i==selected_v3 %}
+                            <option selected>{{ i }}</option>
+                        {% else %}
+                            <option>{{ i }}</option>
+                        {% endif %}
+                    {%endfor%}
+                </select>
+                <input type="hidden" value="{{ data }}" name="data"> <!-- wysyłamy ukryte data -->
+                <input type="submit" value="Zatwierdź zmienne" style="width: 130px">
+            </form>
+
+            {% if selected_v1 %}
+                {% if selected_v2==selected_v3 %}
+                    <p>Wybierz dwie różne zmienne ciągłe.</p>
+                {% else %}
+                    <br>
+                    <style> td, th { border: 1px solid black; } </style>
+                    <table style="text-align: center;
+                        margin-left: 0mm;
+                        margin-right: auto; 
+                        border: ridge 5px green;
+                        background-color: rgb(255, 255, 255);">
+                        <tr>
+                            <td>{{ selected_v1 }}</td>
+                            {% for i in range(0, len_categorical) %}
+                                <th>{{ categorical_values[i] }}</th> 
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td>{{ selected_v2 }}</td>
+                            {% for i in range(0, len_categorical) %}
+                                <td>{{ average_v2[i] }}</td> 
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td>{{ selected_v3 }}</td>
+                            {% for i in range(0, len_categorical) %}
+                                <td>{{ average_v3[i] }}</td> 
+                            {% endfor %}
+                        </tr>
+                    </table>
+                     
+                    {% if chart %}
+                        <p>Wizualizacja danych</p>
+                        <img src="{{ chart }}" alt="Wykres danych." style="text-align: center;
+                        margin-left: auto;
+                        margin-right: auto; 
+                        border: ridge 5px green;
+                        background-color: rgb(255, 255, 255);">
+                    {% endif %} 
+                {% endif %}
+            {% endif %}
+        {% endif %} 
+
+    </body>
+    <footer>
+        <p style="margin-bottom: 0px;
+        margin-top: 20px;">Strona wykonana w ramach kursu Technologie Informacyjne 2020r.</p>
+    </footer>
+</html>

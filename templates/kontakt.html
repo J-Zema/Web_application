@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8">
+        <title>Kontakt</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+
+        <div class="logopwr">
+            <a href="https://pwr.edu.pl">
+                <img src="https://dona.pwr.edu.pl/szukaj/img/logo_PWr_kolor_poziom_bez_tla.png" alt="logo" width="500" height="120">
+            </a>
+        </div>
+
+        </div>
+        <div class="menu">
+            <a href="/">Strona główna</a>
+            <a href="/analiza-danych">Analiza danych</a>
+            <a class="active" href="/kontakt">Kontakt</a>
+        </div>
+        <div style="text-align:center" class="Dane_kontaktowe">
+            <h1><strong>Dane Kontaktowe</strong> </h1>
+            <style> td, th { border: 1px solid black; } </style>
+            <table style="width:unset;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            border: ridge 5px green;
+            background-color: ivory;
+            width: 650px; height: 220px;">
+                <thead style="font-size:20px">
+                    <tr>
+                        <th>Imię i nazwisko</th> 
+                        <th>Numer indeksu</th> 
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody style="font-size:18px">
+                    <tr class="osoba">
+                        <td>Adriana Naumczuk</td> 
+                        <td>256499</td> 
+                        <td>256499@student.pwr.edu.pl</td>
+                    </tr>
+                    <tr class="osoba">
+                        <td>Asia Zema</td> 
+                        <td>255739</td> 
+                        <td>255739@student.pwr.edu.pl</td>
+                    </tr>
+                    <tr class="osoba">
+                        <td>Iga Świtalska</td> 
+                        <td>255766</td> 
+                        <td>255766@student.pwr.edu.pl</td>
+                    </tr>
+                    <tr class="osoba">
+                        <td>Kuba Życiński</td> 
+                        <td>255768</td> 
+                        <td>255768@student.pwr.edu.pl</td>
+                    </tr>
+                    <tr class="osoba">
+                        <td>Sandra Czajkowska</td> 
+                        <td>247565</td> 
+                        <td>247565@student.pwr.edu.pl</td>
+                    </tr>
+                </tbody>
+            </table>
+            <article>
+                <p style="font-size:20px; margin-left: 100mm;
+                    margin-right: 100mm;"><br>
+                    Jesteśmy studentami na Politechnice Wrocławskiej na kierunku matematyka stosowana. <br>
+                    W razie problemów z kontaktem do któregokolwiek z nas <br> proszę udać się do <a href="http://wmat.pwr.edu.pl/studenci/dziekanat">dziekanatu wydziału Matematycznego.</a><br>
+                    Ewentualnie proszę szukać informacji u <a href="http://prac.im.pwr.edu.pl/~giniew/doku.php?id=start"> dr inż. Andrzeja Giniewicza.</a> 
+                </p>
+            </article>
+        </div>
+    </body>
+</html>

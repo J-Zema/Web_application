@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Strona główna</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+
+    <body> 
+        <div class="logopwr">
+            <a href="https://pwr.edu.pl">
+                <img src="https://dona.pwr.edu.pl/szukaj/img/logo_PWr_kolor_poziom_bez_tla.png" alt="logo" width="500" height="120">
+            </a>
+        </div>
+        <div class="menu">
+            <a class="active" href="/">Strona główna</a>
+            <a href="/analiza-danych">Analiza danych</a>
+            <a href="/kontakt">Kontakt</a>
+        </div>      
+
+        <article style= "
+        margin-top: 10mm;
+        margin-left: 50mm;
+        margin-right: 50mm">
+            <section class="opis1"
+            style="border-style: outset;
+            border-color: green;">
+                <h2 style= "text-align: center;
+                background-color: green;">
+                   <strong>Opis strony</strong>
+                </h2>
+            <p style="font-size: 18px;
+            text-align: justify;
+            margin-left: 25mm;
+            margin-right: 25mm">
+                Ta strona składa się ze strony głownej z opisem projektu, strony z analizą danych oraz danych kontaktowych do twórców strony.
+                Analiza danych służy do wczytywania plików
+                z rozszerzeniem .csv i tworzenia z nich wykresów oraz obliczania średniej wybranej zmiennej.
+                <a href="http://prac.im.pwr.edu.pl/~giniew/doku.php?id=rok1920:letni:ti:proj">Projekt</a> został wykonany na zaliczenie przedmiotu 
+                <a href="http://prac.im.pwr.edu.pl/~giniew/doku.php?id=rok1920:letni:ti">Technologie Informacyjne</a> przez grupę studentów z kierunku Matematyka Stosowana na 
+                <a href="http://wmat.pwr.edu.pl">wydziale Matematyki</a> na <a href="https://pwr.edu.pl">Politechnice Wrocławskiej</a> w 2020r.
+            </p>
+            </section>
+            <section class="opis2"
+                style="margin-top: 10mm;
+                border-style: outset;
+                border-color: green;">
+                <h2 style= "text-align: center;
+                background-color: green;">
+                <strong>Przeznaczenie strony</strong>
+                </h2>
+            <p style="font-size: 18px;
+            text-align:justify;
+            margin-left: 25mm;
+            margin-right: 25mm">
+                Ta strona jest przeznaczona do wczytywania plików z rozszerzeniem .csv mających minimum <br>
+                3 zmienne, w tym 2 liczbowe i 1 kategoryczną. Po odebraniu pliku wyświetlą się 3 listy rozwijane <br>
+                z wyborem zmiennych. Listy pozwalają na wybranie 2 zmiennych ciągłych i jednej kategorycznej.<br>
+                Po wybraniu zmiennych wyświetli się tabelka, w której znajdują się wybrane średnie, oprócz tabelki wyświetli się wykres punktowy, na którym:
+                współrzędna X każdego punktu odpowiada pierwszej zmiennej liczbowej,
+                współrzędna Y każdego punktu odpowiada drugiej zmiennej liczbowej,
+                kolor każdego punktu odpowiada zmiennej kategorycznej.
+                Do wykresów są dorysowane punkty oznaczające średnie.
+            </p>
+            </section>
+    </body>
+</html>  
